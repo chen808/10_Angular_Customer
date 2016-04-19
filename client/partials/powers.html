@@ -1,0 +1,55 @@
+<style type="text/css">
+	#powerContainer{
+		padding: 20px;
+	}
+</style>
+
+<div ng-controller="AssignController" id='powerContainer'>
+	<h1>Add a new power to your superhero</h1>
+	<h3>Superhero Name:
+		<!-- Dropdown Menu -->
+		<select ng-model="newAssign.name" >
+			Choose Your Player<option  ng-repeat="i in customers" selected="{{ i }}">{{ i.name }}</option>
+		</select><br><br>
+
+		<!-- Select a Power -->
+		Power:
+		<select ng-model="newAssign.power">
+			<option value="Super Strength">Super Stength</option>
+			<option value="Heat Wave Blast">Heat Wave Blast</option>
+			<option value="Teleportation">Teleportation</option>
+			<option value="Thunder Rain">Thunder Rain</option>
+		</select><br><br>
+
+		<!-- Select a Power Level -->
+		Power Level:
+		<select ng-model="newAssign.powerlevel">
+			<option value="10">10</option>
+			<option value="20">20</option>
+			<option value="30">30</option>
+			<option value="40">40</option>
+		</select><br><br>
+
+		<!-- Submit -->
+		<input type='submit' value='Submit' ng-click='addNewPower()'>
+
+	</h3>
+
+	<table class='table'>
+		<tr>
+			<th>Superhero</th>
+			<th>Power</th>
+			<th>Power Level</th>
+		</tr>
+
+
+		<!-- $index allow us to assign cusomters to a number -->
+		<tr ng-repeat='x in new_power'>
+			<td>{{ x.name }}</td>
+			<td>{{ x.power }}</td>
+			<td>{{ x.powerlevel }}</td>
+		</tr>
+	</table>
+
+
+</div>
