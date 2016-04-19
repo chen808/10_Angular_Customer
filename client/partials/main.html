@@ -1,0 +1,32 @@
+<style type="text/css">
+	#mainContainer{
+		padding: 20px;
+	}
+</style>
+
+<div ng-controller="MeanController" id='mainContainer'>
+	<h1>Add a new customer</h1>
+	<h3>Customer Name: <input type='text' ng-model='new_customer.name'></h3>
+	<h3>Customer Alias: <input type='text' ng-model='new_customer.alias'></h3>
+	<input type='submit' value='Add' ng-click='add_customer()'>
+
+	<table class='table'>
+		<tr>
+			<th>Name</th>
+			<th>Alias</th>
+			<th>Action</th>
+		</tr>
+
+		<span>{{ message }}</span>
+
+		<!-- $index allow us to assign cusomters to a number -->
+		<tr ng-repeat='x in customers track by $index'>
+			<td>{{ x.name }}</td>
+			<td>{{ x.alias }}</td>
+			<!-- Passing the number 'x' which was possible by using $index -->
+			<td><input type='submit' value='Remove' ng-click='removeCustomer(x)'></td>
+		</tr>
+	</table>
+
+
+</div>
